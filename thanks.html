@@ -36,11 +36,11 @@
             timeline.fromTo($(".payment-success"), 0.5, { y: -50, opacity: 0 }, { y: 0, opacity: 1 });
             timeline.fromTo($(".payment-discription"), 0.5, { opacity: 0 }, { opacity: 1 });
             timeline.fromTo($(".redirecting"), 0.5, { opacity: 0 }, { opacity: 1 }, 2);
-
-            setInterval(function() {
-                window.location.replace("home.html")
-            }, 8000)
         }
+
+        setTimeout(function(){
+            window.location.replace("home.html");
+        }, 8000) 
     </script>
 </body>
 </html>
