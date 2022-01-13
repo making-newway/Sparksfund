@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Sparks Foundation</title>
+    <link rel="icon" href="Images/logo.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <h1 class="headText">Sparks Foundation</h1>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="navlinks">
+                <li><a class="links" href="./index.html">Home</a></li>
+                <li><a class="links" href="./donation.html">Donate</a></li>
+                <li><a class="links" href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="first">
+            <h1 class="first-heading animate">GIVE A LITTLE WARMTH THOSE <br> WHO HAVE NO <span class="text">HOPE</span></h1>
+            <h5 class="first-subtext animate2">BE THE REASON SOMEONE SMILES TODAY</h5>
+            <a id="donate" href="./donation.html">
+                DONATE NOW
+            </a>
+        </section>
+    </main>
+    <script>
+        $(".hamburger").on("click", function() {
+            $("#navbar").toggleClass("open");
+            $(".headText").toggleClass("hidden");
+            $(".links").each(function() {
+                $(this).toggleClass("fade");
+            })
+        });
+
+        var tl = gsap.timeline({ delay: 0.2 });
+
+        $(document).ready(function() {
+            gsap.fromTo($("#navbar"), 0.5, { y: -50, opacity: 0 }, { y: 0, opacity: 1 });
+            if ($(window).width < 600) {
+                $(".first-heading").toggleClass("animate");
+                $(".first-subtext").toggleClass("animate2");
+            } else {
+                gsap.fromTo($(".first-heading"), 0.5, { y: -50, opacity: 0 }, { y: 0, opacity: 1 });
+                gsap.fromTo($(".first-subtext"), 0.5, { y: 50, opacity: 0 }, { y: 0, opacity: 1 });
+            }
+            gsap.fromTo($(".donate"), 0.5, { opacity: 0 }, { opacity: 1 });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/donation.css">
+    <title>Donate</title> 
+    <link rel="icon" href="Images/logo.png" />   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="donation-page">
+        <div class="form">
+            <h1 class="heading">Give a Warm Hug</h1>
+            <div class="discription">
+                <h3>
+                    Giving is not just about making a donation, 
+                    <br> its about making difference.
+                    <br><br><br>Any help or donation,
+                    <br> no matter how small or big,
+                    <br> will be deeply appriciated and is much needed.
+                </h3>
+            </div>
+            <form class="payment"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Iik9avwlNuKvaS" async> </script> </form>
+        </div>
+    </div>
+    <script>
+        var timeline = gsap.timeline({ delay: 0.2 });
+
+        $(document).ready(function() {
+            console.log($(".form"));
+            if ($(window).width < 600) {
+                timeline.fromTo($(".form"), 0.5, { width: "0%", opacity: 0 }, { width: "80%", opacity: 1 });
+            } else {
+                timeline.fromTo($(".form"), 0.5, { width: "0%", opacity: 0 }, { width: "50%", opacity: 1 });
+            }
+            timeline.fromTo($(".heading"), 0.5, { y: -50, opacity: 0 }, { y: 0, opacity: 1 });
+            timeline.fromTo($(".discription"), 0.5, { opacity: 0 }, { opacity: 1 });
+            timeline.fromTo($(".payment"), 0.5, { opacity: 0 }, { opacity: 1 });
+        });
+    </script>
+</body>
+
+</html>
